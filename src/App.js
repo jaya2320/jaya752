@@ -19,7 +19,7 @@ const App = () => {
             <Sidebar />
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
               <Routes>
-                <Route path="/" element={<HomePage />} />
+                <Route path="/jaya752" element={<HomePage />} />
                 <Route path="/workExperience" element={<WorkExperience />} />
                 <Route path="/educationAndExperience" element={<EducationAndSkills />} />
                 <Route path="/contact" element={<Contact />} />

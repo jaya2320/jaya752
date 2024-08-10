@@ -35,7 +35,7 @@ const DrawerForDesktopView = () => {
 
         {/* list of tabs */}
         <List component="nav" sx={{ flexGrow: 1, width: '100%' }}>
-          <ListItem button component={Link} to="/">
+          <ListItem button component={Link} to="/jaya752">
             <ListItemIcon sx={{ color: 'white' }}><Home /></ListItemIcon>
             <ListItemText primary="Home" />
           </ListItem>
@@ -100,7 +100,7 @@ const Sidebar = () => {
         <Box>
           <Box sx={{ position: 'fixed', width: '100%', backgroundColor: '#111', color: 'white', padding: 1 }}>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', backgroundColor: '#111', color: 'white', padding: 1 }}>
-            <Typography sx={{ flexGrow: 1, color: "#fff", fontFamily: "Poppins", textDecoration:"none" }} component={Link} to="/">Jaya Gupta</Typography>
+            <Typography sx={{ flexGrow: 1, color: "#fff", fontFamily: "Poppins", textDecoration:"none" }} component={Link} to="/jaya752">Jaya Gupta</Typography>
               <IconButton edge="end" color="inherit" onClick={toggleDrawer} sx={{ mr: 3 }}>
                 <MenuIcon />
               </IconButton>
