@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Box, Grid, CssBaseline } from '@mui/material';
+import Sidebar from './components/Sidebar';
+import HomePage from './components/HomePage';
+import WorkExperience from './components/WorkExperience';
+import theme from './assets/theme';
+import { ThemeProvider } from '@mui/material/styles'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import EducationAndSkills from './components/EducationAndSkills';
+import Contact from './components/contact';
+import { DrawerProvider } from './components/DrawerContext';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <DrawerProvider>
+          <div style={{ display: 'flex', overflow: 'hidden' }}>
+            <Sidebar />
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/workExperience" element={<WorkExperience />} />
+                <Route path="/educationAndExperience" element={<EducationAndSkills />} />
+                <Route path="/contact" element={<Contact />} />
+
+                {/* Add other routes here if needed */}
+              </Routes>
+            </div>
+          </div>
+        </DrawerProvider>
+      </Router>
+    </ThemeProvider>
+
   );
 }
 
