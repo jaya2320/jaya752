@@ -3,7 +3,7 @@ import React from 'react';
 import Typing from 'react-typing-effect';
 import { Box, Typography, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
-
+import BackgroundImage from "../assets/backgroundImage.png"
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 
@@ -14,7 +14,7 @@ const HomePage = () => {
         flex: 1,
         display: 'flex',
         alignItems: 'center',
-        background: 'url(/backgroundImage.png) no-repeat center center/cover',
+        background: `url(${BackgroundImage}) no-repeat center center/cover` ,
         color: 'white',
         textAlign: 'center',
         padding: "50px",

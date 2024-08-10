@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Box, Avatar, Typography, List, ListItem, ListItemText, ListItemIcon, Button, IconButton, Drawer, useMediaQuery, useTheme } from '@mui/material';
 import { Home, Work, Description, ContactMail, Menu as MenuIcon } from '@mui/icons-material';
 import { useDrawer } from './DrawerContext';
+import resume from "../assets/resume.pdf"
 
 const DrawerForDesktopView = () => {
   return (
@@ -55,7 +56,7 @@ const DrawerForDesktopView = () => {
             <Button variant="outlined"
 
               component="a"
-              href="/Jaya.pdf"
+              href={resume}
               download="Jaya.pdf"
               sx={{
                 marginTop: "10px",
