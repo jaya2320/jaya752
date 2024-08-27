@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
 import Grid from '@mui/material/Grid';
 import { Box, Typography, Button } from '@mui/material';
 import Stack from '@mui/material/Stack';
@@ -9,59 +10,119 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 
 
 const InquiryForm = () => {
+const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+  const [errors, setErrors] = useState({});
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const validateForm = () => {
+    let formErrors = {};
+    if (!formData.name) formErrors.name = "Name is required";
+    if (!formData.email) {
+      formErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      formErrors.email = "Email is invalid";
+    }
+    if (!formData.message) formErrors.message = "Message is required";
+    setErrors(formErrors);
+    return Object.keys(formErrors).length === 0;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!validateForm()) return;
+    emailjs.send(
+        process.env.REACT_APP_EMAIL_SERVICE_ID,
+        process.env.REACT_APP_EMAIL_TEMPLATE,
+        formData,
+        process.env.REACT_APP_EMAIL_USER_ID
+    )
+      .then((response) => {
+        alert('Inquiry sent successfully!');
+        setFormData({ name: '', email: '', message: '' }); // Reset form
+      })
+      .catch((err) => {
+        alert('Failed to send inquiry. Please try again.');
+      });
+  };
+
     return (
-        <form>
-            <Stack spacing={2} sx={{ alignItems: "center" }}>
-                <Grid container spacing={2}>
-                    <Grid item xs={6}>
-                        <TextField
-                            required
-                            id="outlined-required"
-                            label="Required"
-                            defaultValue="Name"
-                            fullWidth
-                        />
-                    </Grid>
-                    <Grid item xs={6}>
-                        <TextField
-                            required
-                            id="outlined-required"
-                            label="Required"
-                            defaultValue="Email"
-                            fullWidth
-                        />
-                    </Grid>
-                    <Grid item xs={12} >
-                        <TextField
-                            required
-                            id="outlined-required"
-                            label="Required"
-                            defaultValue="Your Message...."
-                            multiline
-                            rows={6}
-                            maxRows={6}
-                            fullWidth
-                        />
-                    </Grid>
-                </Grid>
-
-                <Button variant="outlined" sx={{
-                    backgroundColor: '#20C997',
-                    color: 'white',
-                    mt: 5,
-                    borderColor: '#20C997', '&:hover': { backgroundColor: '#20C997', color: 'white' },
-                    padding: "10px",
-                    fontFamily: "Poppins",
-                    borderRadius: "40px",
-                    width: "200px",
-                    border: "3px solid ",
-                    fontSize: "15px"
-                }}>
-                    Send Message
-                </Button>
-
-            </Stack>
-
+    <form onSubmit={handleSubmit}>
+          <Stack spacing={2} sx={{ alignItems: "center" }}>
+            <Grid container spacing={2}>
+              <Grid item xs={6}>
+                <TextField
+                  required
+                  name="name"
+                  id="outlined-required"
+                  label="Name"
+                  placeholder="Name"
+                  fullWidth
+                  value={formData.name}
+                  onChange={handleChange}
+                  error={!!errors.name}
+                  helperText={errors.name}
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <TextField
+                  required
+                  name="email"
+                  id="outlined-required"
+                  label="Email"
+                  placeholder="Email"
+                  fullWidth
+                  value={formData.email}
+                  onChange={handleChange}
+                  error={!!errors.email}
+                  helperText={errors.email}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  name="message"
+                  id="outlined-required"
+                  label="Your Message..."
+                  placeholder="Your Message...."
+                  multiline
+                  rows={6}
+                  maxRows={6}
+                  fullWidth
+                  value={formData.message}
+                  onChange={handleChange}
+                  error={!!errors.message}
+                  helperText={errors.message}
+                />
+              </Grid>
+            </Grid>
+            <Button
+              type="submit"
+              variant="outlined"
+              sx={{
+                backgroundColor: '#20C997',
+                color: 'white',
+                mt: 5,
+                borderColor: '#20C997',
+                '&:hover': { backgroundColor: '#20C997', color: 'white' },
+                padding: "10px",
+                fontFamily: "Poppins",
+                borderRadius: "40px",
+                width: "200px",
+                border: "3px solid ",
+                fontSize: "15px"
+              }}
+            >
+              Send Message
+            </Button>
+          </Stack>
         </form>
     )
 }
