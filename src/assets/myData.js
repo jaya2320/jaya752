@@ -49,21 +49,42 @@ export const educationDetails = [
 
 export const timelineData = [
     {
-        date: '06/2022 - Present',
+        date: 'July 2022 - Present',
         title: 'Software Developer',
         company: 'ThoughtWorks',
-        description: "Developed and deployed scalable applications as a Full Stack Developer, working on frontend technologies (React, Redux) and backend technologies (Java, Kotlin, Spring Boot). Implemented Agile methodologies and Test-Driven Development (TDD) to ensure high-quality, maintainable code. Utilized Docker, Kafka, and Kubernetes for containerization, orchestration, and deployment.Engaged in pair programming, conducted code reviews, and led knowledge transfer sessions. Led onboarding sessions for new team members and resolved production issues in collaboration with clients. Contributed to process improvements and fostered a collaborative team environment."
+        techStack:"Java, ReactJs, Kotlin, SpringBoot, MongoDB, Kafka, Kubernetes, Docker, Microservices, Agile Methodology, TDD, Backend Development, Frontend Development, Knowledge Sharing",
+        description: "As a Full Stack Developer, I played a pivotal role in developing and deploying scalable applications,\n"+
+         "utilizing a range of frontend and backend technologies. My expertise in frontend development encompassed\n"+
+         "React and Redux, while on the backend, I leveraged Java, Kotlin, and Spring Boot to build robust and efficient\n"+
+         "server-side solutions. I was actively involved in implementing Agile methodologies and Test-Driven Development\n"+
+         "(TDD), which significantly enhanced our code quality and maintainability. This approach led to a 30% reduction\n"+
+         "in bug reports and improved integration efficiency across our microservices architecture.\n"+
+        "In my role, I contributed effectively as part of an 8-member team, employing Docker, Kafka, and Kubernetes for\n"+
+        "containerization and streamlined deployment processes. My efforts in enhancing user experience were notable;\n"+
+        "I improved user-friendliness by up to 10% through diligent bug identification and resolution.\n"+
+         "This involved direct interaction with users, gathering their feedback, and implementing targeted solutions to\n"+
+          "refine the overall user experience and functionality of our applications.\n"
     },
     {
-        date: '06/2021 - 01/2022',
+        date: 'July 2021 - Jan 2022',
         title: 'Python Developer',
         company: 'Across the Globe (ATG)',
-        description: "Developed a web portal using Python and Django, focusing on backend development. Designed and developed REST APIs in Django for frontend integration and data handling. Created and managed CRUD operations to support interactive and user-friendly web applications. Collaborated in a small team of 2, taking responsibility for key project tasks under the guidance of a Team Lead."
+        techStack: "Python, Django, PostgreSql, Backend Development, Api Development",
+        description: "Developed a web portal using Python and Django, concentrating on backend development to ensure robust\n"+
+        "functionality and performance. Designed and implemented REST APIs in Django, facilitating seamless integration with\n"+
+        "the frontend and efficient data handling. Created and managed CRUD operations to support interactive and user-friendly\n"+
+        "web applications, enhancing overall user engagement and functionality. Worked collaboratively in a small team of 2,\n"+
+         "where I took on key project tasks and responsibilities under the guidance of a Team Lead, contributing significantly \n"+
+        " to the project's success."
     },
     {
-        date: '05/2021 - 06/2021',
+        date: 'May 2021 - June 2021',
         title: 'Blog Writer',
         company: 'Professional Cipher',
-        description: "Authored tutorials on Django, covering backend development and project implementation. Created content related to Django web framework and its application."
+        techStack: "Python, Django, Content Creation, Creative thinking",
+        description: "Authored comprehensive tutorials on Django, focusing on backend development and project implementation.\n"+
+        "The content covered various aspects of the Django web framework, including its architecture, features, and practical\n"+
+        "applications. Created detailed and informative material to help learners understand and effectively utilize Django for\n"+
+        "their projects, thereby enhancing their skills and knowledge in web development."
     },
 ];

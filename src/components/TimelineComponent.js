@@ -40,6 +40,10 @@ const ExperienceDetailsCard = ({ details }) => {
                             <Typography variant="body">
                                 {details.description}
                             </Typography>
+
+                              <Typography variant="h6" padding="15px" >
+                                  <u>Tech Stack :-</u> {details.techStack}
+                              </Typography>
                         </Box>
 
                     </Grid>
