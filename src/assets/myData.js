@@ -1,3 +1,5 @@
+import jannatBharat from"./jannatBharat.png"
+
 export const skillDetails = [
     {
         listType: "Programming Languages",
@@ -88,3 +90,13 @@ export const timelineData = [
         "their projects, thereby enhancing their skills and knowledge in web development."
     },
 ];
+
+export const projectDataList= [
+    {
+        title:"Jannat Bharat",
+        link:"https://jannatbharat.com/",
+        description:" Prepared a full-stack travel website featuring an admin dashboard and inquiry forms for user interactions. The project was designed independently, including frontend and backend development as well as UI/UX design. This project was deployed using google cloud for seemless experience.",
+        techStack:"ReactJs, Django, SQL, Redux, Google Cloud",
+        techStackList:["ReactJs", "Django", "SQL", "Redux", "Google Cloud","Git"]
+    }
+]

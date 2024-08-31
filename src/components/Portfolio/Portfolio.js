@@ -1,15 +1,14 @@
 import React from 'react';
-import { Box, Typography, Button } from '@mui/material';
-import Stepper from '@mui/material/Stepper';
-import Step from '@mui/material/Step';
-import StepLabel from '@mui/material/StepLabel';
-import StepContent from '@mui/material/StepContent';
-import Paper from '@mui/material/Paper';
+import { Box, Typography } from '@mui/material';
 import Stack from '@mui/material/Stack';
-import TimelineComponent from './TimelineComponent';
-import { timelineData } from '../assets/myData';
+import ProjectCard from './ProjectCard';
+import Grid from '@mui/material/Grid';
 
-const WorkExperience = () => {
+import { projectDataList } from '../../assets/myData';
+
+
+const Portfolio = () => {
+
 
     return (
         <Box
@@ -42,24 +41,29 @@ const WorkExperience = () => {
                     }}
                 >
                     <Typography variant='h1'>
-                        WORK EXPERIENCE
+                        PORTFOLIO
                     </Typography>
                     <Typography variant="h2"
                         sx={{
                             position: "absolute !important"
                         }}
                     >
-                        Career History
+                        Projects
                     </Typography>
                 </Box>
+                <Box sx={{ flexGrow: 1 }}>
+                    <Grid container spacing={2}>
 
+                            {projectDataList.map((projectData) => {
+                                return <ProjectCard projectData={projectData} />
+                            })}
 
-                <Box sx={{ maxWidth: "100%" }}>
-                    <TimelineComponent timelineData={timelineData} />
+                    </Grid>
                 </Box>
+
             </Stack>
         </Box>
     );
 }
 
-export default WorkExperience;
+export default Portfolio

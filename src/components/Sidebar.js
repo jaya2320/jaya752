@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Box, Avatar, Typography, List, ListItem, ListItemText, ListItemIcon, Button, IconButton, Drawer, useMediaQuery, useTheme } from '@mui/material';
-import { Home, Work, Description, ContactMail, Menu as MenuIcon } from '@mui/icons-material';
+import { Box, Avatar, Typography, List, ListItem, ListItemText, ListItemIcon, Button, Drawer, useMediaQuery, useTheme } from '@mui/material';
+import { Home, Work, EditNote, Description, ContactMail, Menu as MenuIcon } from '@mui/icons-material';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import EmailIcon from '@mui/icons-material/Email';
+import IconButton from '@mui/material/IconButton';
 import { useDrawer } from './DrawerContext';
 import resume from "../assets/resume.pdf"
 
@@ -43,6 +47,10 @@ const DrawerForDesktopView = () => {
             <ListItemIcon sx={{ color: 'white' }}><Work /></ListItemIcon>
             <ListItemText primary="Work Experience" />
           </ListItem>
+          <ListItem button component={Link} to="/portfolio">
+            <ListItemIcon sx={{ color: 'white' }}><EditNote /></ListItemIcon>
+            <ListItemText primary="Portfolio" />
+          </ListItem>
           <ListItem button component={Link} to="/educationAndExperience">
             <ListItemIcon sx={{ color: 'white' }}><Description /></ListItemIcon>
             <ListItemText primary="Education and Skills" />
@@ -79,9 +87,19 @@ const DrawerForDesktopView = () => {
 
 
       {/* footer */}
-      <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%', paddingBottom: "15px" }}>
+      <Box>
+        <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%', paddingBottom: "15px" }}>
+          <IconButton href="https://github.com/jaya2320">
+            <GitHubIcon sx={{color:"#fff"}} />
+          </IconButton>
+          <IconButton href="https://www.linkedin.com/in/jayagupta752/">
+            <LinkedInIcon sx={{color:"#fff"}} />
+          </IconButton>
 
-        <Typography>Created by <b>JAYA GUPTA</b></Typography>
+        </Box>
+        <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%', paddingBottom: "15px" }}>
+          <Typography>Created by <b>JAYA GUPTA</b></Typography>
+        </Box>
       </Box>
 
     </Box>
@@ -100,7 +118,7 @@ const Sidebar = () => {
         <Box>
           <Box sx={{ position: 'fixed', width: '100%', backgroundColor: '#111', color: 'white', padding: 1 }}>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', backgroundColor: '#111', color: 'white', padding: 1 }}>
-            <Typography sx={{ flexGrow: 1, color: "#fff", fontFamily: "Poppins", textDecoration:"none" }} component={Link} to="/jaya752">Jaya Gupta</Typography>
+              <Typography sx={{ flexGrow: 1, color: "#fff", fontFamily: "Poppins", textDecoration: "none" }} component={Link} to="/jaya752">Jaya Gupta</Typography>
               <IconButton edge="end" color="inherit" onClick={toggleDrawer} sx={{ mr: 3 }}>
                 <MenuIcon />
               </IconButton>
@@ -116,13 +134,13 @@ const Sidebar = () => {
                 width: 'calc(100% - 58px)',
                 height: 'calc(100% - 56px)', // Adjust if needed for header height
                 position: 'fixed',
-                top: 56, // Adjust if needed for header height
-                opacity:".9",
+                top: 12, // Adjust if needed for header height
+                opacity: ".9",
 
               }
             }}
           >
-      <DrawerForDesktopView/>
+            <DrawerForDesktopView />
           </Drawer>
 
         </Box>
