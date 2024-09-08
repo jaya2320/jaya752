@@ -9,7 +9,6 @@ import { projectDataList } from '../../assets/myData';
 
 const Portfolio = () => {
 
-
     return (
         <Box
             sx={{
@@ -53,7 +52,6 @@ const Portfolio = () => {
                 </Box>
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2}>
-
                             {projectDataList.map((projectData) => {
                                 return <ProjectCard projectData={projectData} />
                             })}

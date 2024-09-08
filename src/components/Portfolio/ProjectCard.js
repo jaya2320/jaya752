@@ -27,10 +27,10 @@ const ProjectCard = ({ projectData }) => {
 
   return (
     <>
-      <Grid item md={4} xs={12} sm={8}>
+      <Grid item md={12} xs={12} sm={12} sx={{marginTop: {xs:"8%",sm:"2%"}}}>
           <ProjectCardFront
-            techStack={projectData.techStackList}
             title={projectData.title}
+            about={projectData.about}
             project_link={projectData.link}
             handleClickOpen={handleClickOpen}
           />
@@ -45,6 +45,7 @@ const ProjectCard = ({ projectData }) => {
               title={projectData.title}
               description={projectData.description}
               techStack={projectData.techStack}
+              keyContributions={projectData.keyContributions}
             />
           </BootstrapDialog>
       </Grid>

@@ -11,6 +11,7 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import LaunchIcon from '@mui/icons-material/Launch';
 import jannatBharat from "../../assets/jannatBharat.png"
+import fps from "../../assets/fps.jpg"
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
@@ -20,52 +21,63 @@ import { Link } from 'react-router-dom';
 const getImageUrl = (title) => {
   if (title === "Jannat Bharat") {
     return jannatBharat
+  } else if (title === "FPS - Frame Per Second") {
+    return fps
   }
 }
 
-const Item = styled(Paper)(({ theme }) => ({
-  ...theme.typography.body2,
-  width: "min-content",
-  textAlign: 'center',
-  color: "black",
-  padding: "8px",
-  margin: "5px",
-  backgroundColor: "#ddd"
-}));
-
-export const ProjectCardFront = ({ techStack, title, project_link, handleClickOpen }) => {
+export const ProjectCardFront = ({ about, title, project_link, handleClickOpen }) => {
   return (
-    <Card sx={{ width: 350 }}>
-      <CardMedia
-        component="img"
-        alt={title}
-        height="200"
-        image={getImageUrl(title)}
-      />
-      <CardContent padding="10px" >
-        <Box display="flex" justifyContent="space-between">
-          <Typography gutterBottom variant="h5" component="div">
-            {title}
-          </Typography>
-          <IconButton href={project_link} target="_blank">
-            <LaunchIcon sx={{color: '#20C997'}} />
-          </IconButton>
+    <Box >
+      <Card
+        sx={{
+          display: { xs: 'grid', sm: 'flex' },  // 'xs' for mobile, 'sm' for tablets and above
+          gap: 2,
+          flexDirection: { sm: 'row', xs: "column" },  // For larger screens
+          alignItems: 'center'
+        }}
+      >
+        <CardMedia
+          component="img"
+          alt={title}
+          height="200"
+          sx={{ width: { xs: "100%", sm: "50%" } }}
+          image={getImageUrl(title)}
+        />
+        <Box
+          sx={{
+            display: { xs: 'grid', sm: 'flex' },  // 'xs' for mobile, 'sm' for tablets and above
+            gap: 2,
+            flexDirection: "column"
+          }}
+        >
+          <CardContent padding="10px" >
+            <Box display="flex" justifyContent="space-between">
+              <Typography gutterBottom variant="h5" component="div">
+                {title}
+              </Typography>
+              {project_link !== null ?
+                <IconButton href={project_link} target="_blank">
+                  <LaunchIcon sx={{ color: '#20C997' }} />
+                </IconButton>
+                : <></>}
+            </Box>
+            <Typography gutterBottom
+            >
+              {about}
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small" sx={{ color: '#ffff', backgroundColor: "#20C997" }} onClick={handleClickOpen}>Wanna Learn More Aboout this ?</Button>
+          </CardActions>
         </Box>
-        <Box display="flex" flexWrap="wrap">
-          {techStack.map((tech) => {
-            return <Item> {tech} </Item>
-          })}
-        </Box>
-      </CardContent>
-      <CardActions >
-        <Button size="small" sx={{ color: '#ffff', backgroundColor: "#20C997" }} onClick={handleClickOpen}>Learn More</Button>
-      </CardActions>
-    </Card>
+      </Card>
+    </Box>
   );
 }
 
 
-export const ProjectCardModalDetails = ({ handleClose, title, description, techStack }) => {
+export const ProjectCardModalDetails = ({ handleClose, title, description, techStack, keyContributions }) => {
   return (
     <>
       <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
@@ -89,6 +101,17 @@ export const ProjectCardModalDetails = ({ handleClose, title, description, techS
         <Typography gutterBottom>
           {description}
         </Typography>
+        <br />
+        <br />
+        <Typography gutterBottom>
+          <b>Key contributions: </b>
+          <ul>{keyContributions.map((contribution) => {
+            return <li>{contribution}</li>
+          })}
+          </ul>
+        </Typography>
+        <br />
+        <br />
         <Typography gutterBottom variant='body'>
           <b>TechStack: </b> {techStack}
         </Typography>
