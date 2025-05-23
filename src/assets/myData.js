@@ -3,11 +3,11 @@ import jannatBharat from "./jannatBharat.png"
 export const skillDetails = [
     {
         listType: "Programming Languages",
-        listData: ["Python", "Java", "JavaScript", "HTML", "CSS", "SQL", "PostgreSQL", "MySQL"]
+        listData: ["Python", "Java", "JavaScript", "HTML", "CSS", "SQL", "PostgreSQL", "MySQL", "GraphQl"]
     },
     {
         listType: "IT Constructs",
-        listData: ["Data Structures and Algorithms (DSA)", "Object-Oriented Programming (OOPS)", " Operating Systems", "DBMS"]
+        listData: ["Data Structures and Algorithms (DSA)", "Object-Oriented Programming (OOPS)", " Operating Systems", "DBMS", "Server Driven Architecture"]
     },
     {
         listType: "Frameworks",
@@ -51,8 +51,21 @@ export const educationDetails = [
 
 export const timelineData = [
     {
-        date: 'July 2022 - Present',
-        title: 'Software Developer',
+        date: 'Dec 2024 - Present',
+        title: 'Software Development Engineer 2 ',
+        company: 'Expedia',
+        techStack: "Java, ReactJs, Kotlin, SpringBoot, TypeScript, GraphQL, Microservices, Agile Methodology, TDD, Backend Development, Frontend Development",
+        description: "At Expedia Group, I am currently working as a Software Development Engineer, contributing to \n"+
+        "the development of a large-scale travel platform. My work involves building and enhancing features using a \n"+
+        "modern tech stack that includes GraphQL, TypeScript, React, Kotlin, and Spring Boot. I actively collaborate with \n"+
+        "senior engineers on tasks such as optimizing API performance, refining frontend components, and improving \n"+
+        "microservices architecture. Even in the early months, I’ve contributed to the delivery of incremental features, \n"+
+        "participated in code reviews, and followed Agile practices to ensure clean, maintainable code. This experience has \n"+
+        "further strengthened my full-stack development skills and exposed me to scalable systems in a production-grade environment."
+    },
+    {
+        date: 'July 2022 - Dec 2024',
+        title: 'Software Development Engineer 1',
         company: 'ThoughtWorks',
         techStack: "Java, ReactJs, Kotlin, SpringBoot, MongoDB, Kafka, Kubernetes, Docker, Microservices, Agile Methodology, TDD, Backend Development, Frontend Development, Knowledge Sharing",
         description: "As a Full Stack Developer, I played a pivotal role in developing and deploying scalable applications,\n" +
